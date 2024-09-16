@@ -49,28 +49,36 @@ source ~/your_ws/install/setup.zsh
 ```
 
 ## Usage
-Run the `log_topics_to_csvs` node with:
+Start the `log_topics_to_csvs` node with:
 
 > [!CAUTION]  
-> Before running the node, please read the below documentation. The directory in which the log .csv files are saved to is cleared when the node runs.
+> Before running the node, please read the below documentation. The directory in which the log .csv files are written to is CLEARED on run.
 
 ```zsh
-ros2 run mess2_logger_py log_topics_to_csvs
+ros2 launch mess2_logger_py template.launch.py file_config:=config/template.yaml
 ```
+
+When you start the node,
 
 ## Config Files
 
 - **`config/template.yaml`**
 
-    Defines 
+    Defines the default values for the `dir_logs`, `dirs_sub`, `topics`, and `period_timer` parameters for use with `template.launch.py`.
 
 ## Launch Files
+
+- **`template.launch.py`**
+
+    Provides a template for building launch files for the `log_topics_to_csvs` node using config files.
 
 ## Nodes
 
 ### log_topics_to_csvs
 
 Create subscriptions to topics dynamically and records messages on said topics to respective log .csv files.
+
+Parameters are used to define the path at which the log .csv files are written and the topics which are subscribed to. On run, a save directory is created at `~/dir_logs/dirs_sub\[i\]/dirs_sub\[i+1\]/`. If this directory contains files, those files are cleared. For each topic, a log .csv file is created where `/` characters are replaced with `_` characters; i.e., `/your/topic` becomes `_your_topic.csv`. All messages for logged topic are appended to the corresponding .csv file. If topics are initially unadvertised when the node is run, they are appended to a list of unadvertised topics. A timer callback periodically checks if these initially unadvertsied topics are now advertised, and if they are, initializes the logging of those now advertised topics.
 
 #### Subscriptions
 

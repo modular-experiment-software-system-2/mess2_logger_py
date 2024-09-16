@@ -49,18 +49,20 @@ source ~/your_ws/install/setup.zsh
 ```
 
 ## Usage
-
-> [!WARNING]  
-> Before running the node, please read through the below documentation.
-
 Run the `log_topics_to_csvs` node with:
+
+> [!CAUTION]  
+> Before running the node, please read the below documentation. The directory in which the log .csv files are saved to is cleared when the node runs.
 
 ```zsh
 ros2 run mess2_logger_py log_topics_to_csvs
 ```
 
-
 ## Config Files
+
+- **`config/template.yaml`**
+
+    Defines 
 
 ## Launch Files
 
@@ -82,7 +84,7 @@ Subscriptions are created dynamically using the `topics` parameter.
 
 - **`dirs_sub`** (list\[string\], default: \["actor", "actor1"\])
 
-	The subdirectories in which the log .csv files are written; i.e., actor/actor1/.
+	The subdirectories in which the log .csv files are written; i.e., actor/actor1/. The relative path from home to `dir_logs` and subsequently `dirs_sub` is CLEARED when the node starts.
 
 - **`topics`** (list\[string\], default: \["/topic1", "topic2"\])
 

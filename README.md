@@ -19,7 +19,7 @@ This package has been tested in ROS2 Humble and Jazzy on Ubuntu 22.04 and 24.04,
 - ROS2 Humble or Jazzy
 - ROS2 Workspace
 
-These instructions assume that you meet the above prerequisites. Do not proceed if you have not already installed ROS2 Humble or Jazzy on Ubuntu 22.04 or 24.04, respectively, and if you have not created a ROS2 workspace.
+These instructions assume that you meet the above prerequisites. Do not proceed if you have not already installed ROS2 Humble or Jazzy on Ubuntu 22.04 or 24.04, respectively, or if you have not created a ROS2 workspace.
 
 ### Building
 Clone the repository into your ROS2 workspace's `src` directory:

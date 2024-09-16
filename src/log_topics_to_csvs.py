@@ -167,17 +167,19 @@ class LogTopicsToCSVs(Node):
         super().__init__("log_topics_to_csvs")
 
         # declare parameters
-        self.declare_parameter("dir_logs", "/home/marinarasauced/Projets/testing")
-        self.declare_parameter("dirs_sub", ["actor"])
-        self.declare_parameter("topics", ["/mess2/topic1", "/mess2/topic2"])
+        self.declare_parameter("dir_logs", "Projets/testing")
+        self.declare_parameter("dirs_sub", ["actor", "actor1"])
+        self.declare_parameter("topics", ["/topic1", "/topic2"])
+        self.declare_parameter("period_timer", 5.0)
 
         # retrieve parameters
-        dir_logs = self.get_parameter("dir_logs").get_parameter_value().string_value
+        dir_logs = os.path.join(os.path.expanduser("~"), self.get_parameter("dir_logs").get_parameter_value().string_value)
         dirs_sub = self.get_parameter("dirs_sub").get_parameter_value().string_array_value
         topics = self.get_parameter("topics").get_parameter_value().string_array_value
-        self.path_log = os.path.join(dir_logs, *dirs_sub)
+        period_timer = self.get_parameter("period_timer").get_parameter_value().double_value
 
         # create log directories if they do not exist
+        self.path_log = os.path.join(dir_logs, *dirs_sub)
         if not os.path.exists(self.path_log):
             os.makedirs(self.path_log)
 
@@ -196,7 +198,7 @@ class LogTopicsToCSVs(Node):
         for topic in topics:
             try:
                 # get the message type
-                type_topic = get_topic_type(topic)
+                _ = get_topic_type(topic)
 
                 # add to advertised topics
                 self.add_advertised_topic(topic_msg=topic)
@@ -206,7 +208,7 @@ class LogTopicsToCSVs(Node):
                 self.add_unadvertised_topic(topic_msg=topic)
         
         # create timer function to periodically check topics and add them to advertised if advertised
-        self.timer = self.create_timer(5.0, self.remove_unavertised_topics)
+        self.timer = self.create_timer(period_timer, self.remove_unavertised_topics)
 
 
     class LogTopicToCSV():

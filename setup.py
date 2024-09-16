@@ -11,13 +11,11 @@ setup(
     data_files=[
         ('share/ament_index/resource_index/packages', ['resource/' + package_name]),
         ('share/' + package_name, ['package.xml']),
-        (
-            path.join("share", package_name, "launch"),
-            glob(path.join("launch", "*launch.[pxy][yma]*")),
-        ),
+        (path.join("share", package_name, "launch"), glob(path.join("launch", "*launch.[pxy][yma]*"))),
+        (path.join("share", package_name, "config"), glob(path.join("config", "*"))),
     ],
     py_modules=[
-        'src.log_to_csv',
+        'src.log_topics_to_csvs',
     ],
     install_requires=['setuptools'],
     zip_safe=True,
@@ -27,7 +25,7 @@ setup(
     license='Apache 2.0',
     entry_points={
         'console_scripts': [
-            'log_to_csv = src.log_to_csv:main',
+            'log_topics_to_csvs = src.log_topics_to_csvs:main',
         ],
     },
 )

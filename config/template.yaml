@@ -1,0 +1,7 @@
+dir_logs: "Projects/testing"
+dirs_sub:
+  - "actor"
+topics:
+  - "/topic1"
+  - "/topic2"
+period_timer: 5.0

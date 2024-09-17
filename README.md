@@ -7,7 +7,7 @@ This package contains a general purpose ROS2 logger node that dynamically create
 ## License
 This package is released under an [Apache 2.0 license](https://github.com/marinarasauced/mess2_logger_py/blob/main/LICENSE).
 
-**Authors:** [Marina Nelson](https://github.com/marinarasauced),  <br/>
+**Authors:** [Marina Nelson](https://github.com/marinarasauced), <br/>
 **Affiliation:** [ACE Lab](https://rvcowlagi-research.owlstown.net/) <br/>
 **Maintainer:** Marina Nelson, marinarasauced@outlook.com
 
@@ -56,7 +56,7 @@ Start the `log_topics_to_csvs` node with:
 > Before running the node, please read the below documentation. The directory in which the log .csv files are written to is CLEARED on run.
 
 ```zsh
-ros2 launch mess2_logger_py template.launch.py file_config:=config/template.yaml
+ros2 launch mess2_logger_py template.launch.py
 ```
 
 When you start the node,
@@ -95,7 +95,7 @@ Subscriptions are created dynamically using the `topics` parameter.
 
 	The subdirectories in which the log .csv files are written; i.e., actor/actor1/. The relative path from home to `dir_logs` and subsequently `dirs_sub` is CLEARED when the node starts.
 
-- **`topics`** (list\[string\], default: \["/topic1", "topic2"\])
+- **`topics`** (list\[string\], default: \["/topic1", "/topic2"\])
 
 	The topics to log.
 

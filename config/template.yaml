@@ -1,6 +1,6 @@
 /**:
   ros__parameters:
-    dir_logs: "Projects/testing"
+    dir_logs: "Projets/testing"
     dirs_sub:
       - "flir"
     topics:

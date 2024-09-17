@@ -1,7 +1,11 @@
-dir_logs: "Projects/testing"
-dirs_sub:
-  - "actor"
-topics:
-  - "/topic1"
-  - "/topic2"
-period_timer: 5.0
+/**:
+  ros__parameters:
+    dir_logs: "Projects/testing"
+    dirs_sub:
+      - "flir"
+    topics:
+      - "/mess2/flir1/camera_info"
+      - "/mess2/flir1/meta"
+      - "/mess2/flir2/camera_info"
+      - "/mess2/flir2/meta"
+    period_timer: 5.0

@@ -167,7 +167,7 @@ class LogTopicsToCSVs(Node):
         super().__init__("log_topics_to_csvs")
 
         # declare parameters
-        self.declare_parameter("dir_logs", "Projets/testing")
+        self.declare_parameter("dir_logs", "Desktop/logs")
         self.declare_parameter("dirs_sub", ["actor", "actor1"])
         self.declare_parameter("topics", ["/topic1", "/topic2"])
         self.declare_parameter("period_timer", 5.0)
@@ -243,7 +243,7 @@ class LogTopicsToCSVs(Node):
             self.map_msg = get_msg_map(path_msg=path_msg, struct_msg="msg", output=[])
             
             # store path for log .csv file
-            self.path_log = os.path.join(path_log, f"{self.topic_msg.replace("/", "_")}.csv")
+            self.path_log = os.path.join(path_log, f"{self.topic_msg.replace('/', '_')}.csv")
 
             # append msg map to log .csv file
             with open(self.path_log, "a", newline="") as file_log:

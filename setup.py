@@ -25,7 +25,7 @@ setup(
     license='Apache 2.0',
     entry_points={
         'console_scripts': [
-            'log_topics_to_csvs = src.log_topics_to_csvs:main',
+            'logger_py = src.log_topics_to_csvs:main',
         ],
     },
 )

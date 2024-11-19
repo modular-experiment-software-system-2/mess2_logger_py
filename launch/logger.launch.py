@@ -1,7 +1,7 @@
 
 from launch import LaunchDescription
 from launch.actions import DeclareLaunchArgument
-from launch.substitutions import LaunchConfiguration
+from launch.substitutions import LaunchConfiguration, PythonExpression
 from launch_ros.actions import Node
 from launch_ros.substitutions import FindPackageShare
 
@@ -11,7 +11,7 @@ def generate_launch_description():
 
         DeclareLaunchArgument(
             "parameters",
-            default_value=FindPackageShare(package="mess2_logger_py").find("mess2_logger_py")+"/launch/parameters.yaml",
+            default_value=FindPackageShare(package="mess2_logger_py").find("mess2_logger_py")+"/config/logger_py.yaml",
             description="path to the parameters file"
         ),
 
@@ -23,9 +23,8 @@ def generate_launch_description():
 
         Node(
             package="mess2_logger_py",
-            executable="logger",
-            name=f"{LaunchConfiguration('namespace')}_logger_py",
-            namespace=LaunchConfiguration("namespace"),
+            executable="logger_py",
+            name=PythonExpression(["'", LaunchConfiguration('namespace'), "_logger_py'"]),
             parameters=[LaunchConfiguration("parameters")]
         )
     ])

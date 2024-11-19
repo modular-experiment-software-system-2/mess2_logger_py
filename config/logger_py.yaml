@@ -2,7 +2,7 @@
   ros__parameters:
     dir_logs: "Desktop/logs"
     dirs_sub:
-      - ""
+      - "test"
     topics:
       - "/mess2/flir1/camera_info"
       - "/mess2/flir1/meta"

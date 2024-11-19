@@ -24,7 +24,7 @@ def generate_launch_description():
         Node(
             package="mess2_logger_py",
             executable="logger",
-            name=f"{LaunchConfiguration("namespace")}_logger_py",
+            name=f"{LaunchConfiguration('namespace')}_logger_py",
             namespace=LaunchConfiguration("namespace"),
             parameters=[LaunchConfiguration("parameters")]
         )

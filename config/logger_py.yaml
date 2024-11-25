@@ -4,8 +4,8 @@
     dirs_sub:
       - "test"
     topics:
-      - "/mess2/flir1/camera_info"
-      - "/mess2/flir1/meta"
-      - "/mess2/flir2/camera_info"
-      - "/mess2/flir2/meta"
+      - "/flir2/image_raw"
+      # - "/mess2/flir1/meta"
+      # - "/mess2/flir2/camera_info"
+      # - "/mess2/flir2/meta"
     period_timer: 5.0

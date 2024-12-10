@@ -7,7 +7,7 @@ This package contains a general purpose ROS2 logger node that dynamically create
 ## License
 This package is released under an [Apache 2.0 license](https://github.com/marinarasauced/mess2_logger_py/blob/main/LICENSE).
 
-**Authors:** [Marina Nelson](https://github.com/marinarasauced), Vik<br/>
+**Authors:** [Marina Nelson](https://github.com/marinarasauced), [Vik095](https://github.com/Vik095)<br/>
 **Affiliation:** [ACE Lab](https://rvcowlagi-research.owlstown.net/) <br/>
 **Maintainer:** Marina Nelson, marinarasauced@outlook.com
 

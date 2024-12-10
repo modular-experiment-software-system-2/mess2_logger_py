@@ -2,7 +2,7 @@
 ROS2 package for logging messages on topics directly to .csv files.
 
 ## Overview
-This package contains a general purpose ROS2 logger node that dynamically creates subscription instances for topics without specifying the message types of said topics.
+This package contains a general purpose ROS2 logger node that dynamically creates subscription instances for topics without specifying the message types of said topics. Each topic's message type is decomposed to its primitive data types to create a map which is then evaluated upon each callback allowing messages to be appended as new lines to a unique .csv file.
 
 ## License
 This package is released under an [Apache 2.0 license](https://github.com/marinarasauced/mess2_logger_py/blob/main/LICENSE).
